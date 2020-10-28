@@ -19,9 +19,8 @@ export const onAuthChange = () => async (dispatch) => {
   window.gapi.load("client:auth2", () => {
     window.gapi.client
       .init({
-        clientId:
-          "125062939150-cjt15q7o4896dgo2aks53gac4auuerp8.apps.googleusercontent.com",
-        scope: "email",
+        clientId: "YOUR_CLINT_ID",
+        scope: "YOUR_SCOPE",
       })
       .then(() => {
         const auth = window.gapi.auth2.getAuthInstance();
