@@ -3,10 +3,11 @@ import GoogleOAuth from "./GoogleOAuth";
 
 const Header = () => {
   return (
-    <React.Fragment>
-      <div>Header component</div>
-      <GoogleOAuth />
-    </React.Fragment>
+    <div className="ui secondary pointing menu">
+      <div className="right menu">
+        <GoogleOAuth />
+      </div>
+    </div>
   );
 };
 
