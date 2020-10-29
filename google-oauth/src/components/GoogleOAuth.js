@@ -28,6 +28,7 @@ class GoogleOAuth extends Component {
   };
 
   render() {
+    console.log(this.props);
     const name = this.getFullName();
     return <div>{this.renderAuthButton(name)}</div>;
   }

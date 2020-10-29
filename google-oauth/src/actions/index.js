@@ -1,26 +1,20 @@
 import { SIGN_IN, SIGN_OUT } from "./types";
+import { CLIENT_ID, SCOPE } from "../constants/oauth2";
 
-export const signIn = (auth) => async (dispatch) => {
+export const signIn = () => async (dispatch) => {
   await dispatch(onAuthChange());
-  return {
-    type: SIGN_IN,
-    payload: auth,
-  };
 };
 
 export const signOut = () => async (dispatch) => {
   await dispatch(onAuthChange());
-  return {
-    type: SIGN_OUT,
-  };
 };
 
 export const onAuthChange = () => async (dispatch) => {
   window.gapi.load("client:auth2", () => {
     window.gapi.client
       .init({
-        clientId: "YOUR_CLINT_ID",
-        scope: "YOUR_SCOPE",
+        clientId: CLIENT_ID,
+        scope: SCOPE,
       })
       .then(() => {
         const auth = window.gapi.auth2.getAuthInstance();
@@ -36,6 +30,7 @@ export const onAuthChange = () => async (dispatch) => {
       })
       .catch((err) => {
         //handle errors
+        console.log(err);
       });
   });
 };
